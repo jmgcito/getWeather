@@ -20,7 +20,6 @@ There are two ways to search for a city in getWeather – using a city name, or 
 Due to the Open Weather servers existing in multiple places around the world (and even multiple in a given country), it is simple process to find the city most local to you with just name. For example, I live in Concord, California and even though there might be several Concords in the USA, Open Weather retrieves the weather data for the closest Concord to me.
 
 ### Backgrounds Gifs
-[add info on how we use gifs to decorate the background of getweather. how the calls are made and demonstrate some optimal results. also acknowledge the shortcomings of this method and how it is something i embrace for it gives a unique and hard to predict experience of using the app.]
 
 A unique feature of getWeather is how the background displays gifs that are relevant to each weather report. This is a feature that calls the Giphy API with keywords including 'weather' appended with the current city's name and the current weather description. Using this method has the potential to retrieve background gifs that are incredibly on point with the weather report. This can be seen in the San Francisco and London demonstrations. Nonetheless, this is a feature that depends enourmously on the randomness of Giphy's search algorithm. Because of this, many of the background gifs tend to be humourous, almost relevant, or entirely irerelevant. Admittedly while imperfect, this aspect of getWeather gives it the characteristic of being alive and everchanging. Every visit is different to some degree.
 
