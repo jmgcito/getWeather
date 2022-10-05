@@ -4,7 +4,7 @@ getWeather is a an app that retrieves a live weather data from anywhere in the w
 
 ## Technologies Used
 
-getWeather is built using vanilla Javascript, HTML, and CSS. It also uses Giphy's (API)[https://developers.giphy.com/] to retrieve gifs, and OpenWeather's (API)[https://openweathermap.org/current] for current weather data.
+getWeather is built using vanilla Javascript, HTML, and CSS. It also uses Giphy's [API](https://developers.giphy.com/) to retrieve gifs, and OpenWeather's [API](https://openweathermap.org/current) for current weather data.
 
 ## Highlights
 
