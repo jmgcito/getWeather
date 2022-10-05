@@ -1,5 +1,5 @@
 # getWeather
 
-Live weather reports in a city of your choice. Just search by inputting your city or zipcode.
+Live weather reports locally or from any city in the world. 
 
 
