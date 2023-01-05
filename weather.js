@@ -60,7 +60,35 @@ async function getWeather(location) {
   lowTemperature.textContent = "L: " + weatherData.lowTemperature + "°";
 }
 
-getWeather("London");
+let currentCity = "London";
+
+async function getCity(lat, lon) {
+  const response = await fetch(
+    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=2900d552e9d4c56b3333eb19717e2772`,
+    { mode: "cors" }
+  );
+
+  const rawGeoData = await response.json();
+  console.log(rawGeoData[0]);
+  currentCity = rawGeoData[0].name;
+  getWeather(currentCity);
+}
+
+function success(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  getCity(lat, lon);
+}
+
+function error() {
+  getWeather("London");
+}
+
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  error();
+}
 
 const searchBar = document.querySelector("#search-bar");
 const searchButton = document.querySelector("#search-button");
