@@ -36,8 +36,8 @@ async function getWeatherGif(description, city) {
 async function getWeather(location) {
   const response = await fetch(
     isNaN(location) //if location is not a number, it is assumed to be a zip code, otherwise it is assumed to be a city
-      ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=2900d552e9d4c56b3333eb19717e2772`
-      : `https://api.openweathermap.org/data/2.5/weather?zip=${location}&appid=2900d552e9d4c56b3333eb19717e2772`,
+      ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
+      : `https://api.openweathermap.org/data/2.5/weather?zip=${location}&appid=${apiKey}`,
     { mode: "cors" }
   );
 
@@ -64,7 +64,7 @@ let currentCity = "London";
 
 async function getCity(lat, lon) {
   const response = await fetch(
-    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=2900d552e9d4c56b3333eb19717e2772`,
+    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${apiKey}`,
     { mode: "cors" }
   );
 
