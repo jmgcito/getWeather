@@ -1,3 +1,20 @@
+let weather_key = "";
+let gif_key = "";
+async function getKeys() {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(),
+  };
+  const response = await fetch("/api", options);
+  const data = await response.json();
+  weather_key = data.weather_key;
+  gif_key = data.gif_key;
+}
+getKeys();
+
 //converts Kelvin to Farenheit
 //F = 1.8*(K-273) + 32 ; C = K − 273.15
 function convertToF(temperatureK) {
@@ -21,7 +38,7 @@ function processData(rawWeatherData) {
 async function getWeatherGif(description, city) {
   const body = document.querySelector("body");
   const response = await fetch(
-    `https://api.giphy.com/v1/gifs/translate?api_key=KFyhHa3e4TIuZ66QSG8TxWWrjHbWELWz&s=weather ${
+    `https://api.giphy.com/v1/gifs/translate?api_key=${gif_key}&s=weather ${
       description + " " + city
     }`,
     { mode: "cors" }
@@ -36,8 +53,8 @@ async function getWeatherGif(description, city) {
 async function getWeather(location) {
   const response = await fetch(
     isNaN(location) //if location is not a number, it is assumed to be a zip code, otherwise it is assumed to be a city
-      ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=2900d552e9d4c56b3333eb19717e2772`
-      : `https://api.openweathermap.org/data/2.5/weather?zip=${location}&appid=2900d552e9d4c56b3333eb19717e2772`,
+      ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weather_key}`
+      : `https://api.openweathermap.org/data/2.5/weather?zip=${location}&appid=${weather_key}`,
     { mode: "cors" }
   );
 
@@ -64,7 +81,7 @@ let currentCity = "London";
 
 async function getCity(lat, lon) {
   const response = await fetch(
-    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=2900d552e9d4c56b3333eb19717e2772`,
+    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${weather_key}`,
     { mode: "cors" }
   );
 
