@@ -64,7 +64,7 @@ let currentCity = "London";
 
 async function getCity(lat, lon) {
   const response = await fetch(
-    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=2900d552e9d4c56b3333eb19717e2772`,
+    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=2900d552e9d4c56b3333eb19717e2772`,
     { mode: "cors" }
   );
 
